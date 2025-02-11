@@ -1,10 +1,167 @@
+body {
+  background: whitesmoke;
+}
+
+
 .App {
   text-align: center;
 }
-
+.signIn {
+  text-align: left;
+  margin-left: 25px;
+  color: blue;
+  font-size: 30px;
+}
+.google{
+  text-align: center;
+  margin-top: -55px;
+  margin-left: -20px;
+  font-size: larger;
+  font-style: initial;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+.email1 {
+  margin-left: -280px;
+
+}
+.password {
+  margin-left: -230px;
+
+}
+.App {
+  height: 10vh;
+  width: 10vh;
+
+}
+.photo {
+align-self: self-start;
+  height: 70px;
+  width: 70px;
+  margin-left: -150px;
+margin-top: 10px;
+}
+.rectangle {
+  display: inline-block;
+  width: 400px;
+  height: 80px;
+  background: white;
+  margin-left: 10px;
+  margin-top: 10px;
+  border: 1px solid darkgray; 
+  border-radius: 10px;
+  box-sizing: border-box;
+
+}
+.rectangle2 {
+  width: 400px;
+  height: 80px;
+  background: white;
+  margin-left: 10px;
+  margin-top: 29px;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+  box-sizing: border-box;
+
+
+}
+.signUp {
+
+
+  margin-top: 45px;
+}
+.signIn1 {
+
+  color: white;
+  text-align: center;
+}
+#rememberMe label {
+  font:
+    1rem 'Fira Sans',
+    sans-serif;
+    padding: 0.4em;
+
+}
+
+.remember {    
+  margin-top: -24px;
+  
+}
+input {
+  margin-left: -360px;
+  margin-top: 25px;
+}
+.forgotPassword {
+margin-left: 53px;}
+
+.rectangle3 {
+
+  width: 400px;
+  height: 80px;
+  background: white;
+  margin-left: 10px;
+  margin-top: 35px;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.rectangle4 {
+  width: 400px;
+  height: 80px;
+  background: blue;
+  margin-left: 10px;
+  margin-top: 35px;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.line1 {
+width: 80px;
+margin-top: 50px;
+margin-left: 8px;
+
+}
+.box1 {
+  margin-left: 15px;
+  margin-right: 15px;
+
+
+
+}
+.line2 {
+  width: 90px;
+  margin-top: -10px;
+  margin-right: 8px;
+  
+  }
+.email {
+  color: gray;
+  font-style: bold;
+  font-size: 20px;
+  margin-top: -25px;
+margin-left: -6px;
+}
+.terolo {
+  margin: 10px;
+  color: blue;
+}
+.box {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  margin-top: -10px;
+  display: inline-block;
+  width: 450px;
+  height: 817px;
+  background: white;
+  margin-left: 750px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 1px 1px gray;
 }
 
 @media (prefers-reduced-motion: no-preference) {
