@@ -13,35 +13,38 @@ function App() {
 
             <h3 className="google">Google</h3>
           </div>
-          <hr className="line1" />
-          <div className="email">Or sign in with Email</div>
-          <hr className="line2" />
 
-          <br />
+          <form action="" className="form">
+    <h1 className="form__title">Or sign in with Email</h1>
 
-          <div className="rectangle2">
-            <h3 className="email1">Email</h3>
-          </div>
-          <br />
+    <div className="form__group">
+      <input type="text" id="email" className="form__input" placeholder=" " autocomplete="off" />
+      <label for="email" className="form__label">Email</label>
+    </div>
 
-          <div className="rectangle3">
-            <h3 className="password">Password</h3>
-          </div>
-          <br />
-
-          <div>
+    <div className="form__group">
+      <input type="password" id="password" className="form__input" placeholder=" " />
+      <label for="password" className="form__label">Password</label>
+    </div>
+    <div className="rememberMe">
             <input type="checkbox" id="rememberMe" name="rememberMe" checked />
 
             <label for="rememberMe">
               <h3 className="remember">
                 Remember me
                 <a className="forgotPassword" href="forgotPassword.js"> Forgot Password?</a>
-              </h3>{" "}
+              </h3>
             </label>
           </div>
-          <div className="rectangle4">
+    <button class="form__button"> <div className="rectangle4">
             <h3 className="signIn1">Signin</h3>
-          </div>
+          </div></button>
+  </form>
+
+
+
+          
+         
           <div className="signUp">
             <h3>
               Don't have an account?
