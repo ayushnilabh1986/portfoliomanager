@@ -12,7 +12,7 @@
 }
 .google{
   text-align: center;
-  margin-top: -55px;
+  margin-top: -50px;
   margin-left: 20px;
   font-size: larger;
   font-style: initial;
@@ -71,7 +71,9 @@ body {
   background-color: white;
 
   .form__title {
-    margin-bottom: 0.5rem;
+      margin-top: -20px;
+      margin-bottom: 0.5rem;
+      font-size: larger;
   }
 
   .form__description {
@@ -191,9 +193,10 @@ margin-top: 3px;
 
 }
 .signIn1 {
-
+  margin: 30px;
   color: white;
   text-align: center;
+
 }
 #rememberMe label {
   font:
@@ -207,9 +210,23 @@ margin-top: 3px;
   margin-top: 7px;
     margin-left: 0px;
     margin-right: 324px;
-    margin-bottom: -10px;
+    margin-bottom: 33px;
 }
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 27px;
+    display: inline-block;
+    width: 715px;
+    height: 80px;
+    /* background: white; */
+    margin-left: 655px;
+    /* border: 1px solid gray; */
+    /* border-radius: 10px; */
+    /* box-sizing: border-box; */
 
+}
 .remember {     
   margin-top: -26px;
   margin-left: -107px;
@@ -260,10 +277,9 @@ margin-left: 8px;
 
 }
 .line2 {
-  width: 90px;
-  margin-top: -10px;
-  margin-right: 8px;
-  
+  width: 89px;
+  margin-top: -20px;
+  margin-right: 0px;
   }
 .email1 {
   color: gray;
@@ -282,21 +298,21 @@ margin-left: -6px;
   margin-top: 0px;
   margin-bottom: 9px;
   margin-right: -50px;}
-.box {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-  margin-top: 20px;
-  display: inline-block;
-  width: 500px;
-  height: 750px;
-  background: white;
-  margin-left: 750px;
-  border: 1px solid gray;
-  border-radius: 10px;
-  box-sizing: border-box;
-  box-shadow: 1px 1px 1px 1px gray;
-}
+  .box {
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    display: inline-block;
+    width: 500px;
+    height: 750px;
+    background: white;
+    margin-left: 750px;
+    /* border: 1px solid gray; */
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
