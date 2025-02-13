@@ -27,7 +27,8 @@ function App() {
       <label for="password" className="form__label">Password</label>
     </div>
     <div className="rememberMe">
-            <input type="checkbox" id="rememberMe" name="rememberMe" checked />
+   
+            <input type="checkbox" value="1" id="rememberMe" name="rememberMe"  />
 
             <label for="rememberMe">
               <h3 className="remember">
