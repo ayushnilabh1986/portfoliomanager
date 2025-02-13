@@ -1,68 +1,48 @@
 import "./App.css";
-import googleLogo from "./../src/assets/google.webp";
+import { SignUp } from "../src/pages/SignUp.js";
+import { Home } from "../src/pages/Home.js";
+import { SignIn }from "../src/pages/SignIn.js";
+import { ForgotPassword } from "../src/pages/ForgotPassword.js";
 
-function App() {
+
+import React from "react";
+
+import { Routes, Route, Link } from "react-router-dom";
+
+ function App() {
   return (
-    <div className="App">
-      <header>
-      <h1 className="terolo"> Porfolio Manager </h1>
-      </header>
-      <div className="box">
-        <div className="box1">
-          <h2 className="signIn">Sign in</h2>
-          <div className="rectangle">
-            <img className="photo" src={googleLogo} alt="react logo" />
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">{ Home }</Link>
+            </li>
+            <li>
+              <Link to="/SignIn">{ SignIn }</Link>
+            </li>
+            <li>
+              <Link to="/SignUp">{ SignUp }</Link>
+            </li>
+            <li>
+              <Link to="/ForgotPassword">{ ForgotPassword }</Link>
+            </li>
+          </ul>
+        </nav>
 
-            <h3 className="google">Google</h3>
-          </div>
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Routes>
+        <Route path='/SignIn' element={<SignIn />} />         
 
-          <form action="" className="form">
-            <hr className="line1" />
-    <h1 className="form__title">Or sign in with Email</h1>
-    <hr className="line2" />
+        <Route path='/SignUp' element={<SignUp />} />          
 
-    <div className="form__group">
-      <input type="text" id="email" className="form__input" placeholder=" " autocomplete="off" />
-      <label for="email" className="form__label">Email</label>
-    </div>
+        <Route path='/' element={<Home />} />          
 
-    <div className="form__group">
-      <input type="password" id="password" className="form__input" placeholder=" " />
-      <label for="password" className="form__label">Password</label>
-    </div>
-    <div className="rememberMe">
-   
-            <input type="checkbox" value="1" id="rememberMe" name="rememberMe"  />
+        
+            <Route path='/ForgotPassword' element={<ForgotPassword />} />
 
-            <label for="rememberMe">
-              <h3 className="remember">
-                Remember me
-                <a className="forgotPassword" href="forgotPassword.js"> Forgot Password?</a>
-              </h3>
-            </label>
-          </div>
-    <button class="form__button"> <div className="rectangle4">
-            <h3 className="signIn1">Signin</h3>
-          </div></button>
-  </form>
-
-
-
-          
-         
-          <div className="signUp">
-            <h3>
-              Don't have an account?
-              <a href="SignUp.js"> Signup for free</a>
-            </h3>
-          </div>
-        </div>
+        </Routes>
       </div>
-      <footer className="footer">
-      <p>The site is protected by reCAPTCHA and the Google <a href="Privacy.jsx">Privacy Policy</a>  and <a href="Terms.jsx">Terms of Conditions</a> apply.</p>
-      </footer>
-    </div>
   );
 }
-
 export default App;
