@@ -4,7 +4,7 @@ import googleLogo from "./../src/assets/google.webp";
 function App() {
   return (
     <div className="App">
-      <h1 className="terolo"> Terolo </h1>
+      <h1 className="terolo"> Porfolio Manager </h1>
       <div className="box">
         <div className="box1">
           <h2 className="signIn">Sign in</h2>
