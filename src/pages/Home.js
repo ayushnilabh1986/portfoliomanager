@@ -1,13 +1,15 @@
-import googleLogo from "./asset/google.webp";
+import './../App.js';
+
 import React from "react";
 import { SignUp } from "./SignUp.js";
 import { SignIn } from "./SignIn.js";
-import { ForgotPassword } from "./ForgotPassword.js";
+import {ForgotPassword }  from "./ForgotPassword.js";
+import ReactDOM from 'react-dom/client';
 
 
 import { Routes, Route, Link, useLocation } from "react-router-dom";
-import "./../App.js";
-export function Home() {
+import googleLogo from "./asset/google.webp";
+export  function Home() {
   return (
     <div className="App">
       <header>
@@ -62,8 +64,11 @@ export function Home() {
               <label for="rememberMe">
                 <h4 className="remember">
                   Remember me
+                  <div className="forgotPassword">
                   <Link to="/ForgotPassword">Forgot Password?</Link>
 
+                    
+                  </div>
                 </h4>
               </label>
             </div>
@@ -80,7 +85,7 @@ export function Home() {
               Don't have an account?
               <Link to="/SignUp">Signup for free</Link>
 
-            </h4>
+           </h4>
           </div>
         </div>
       </div>
@@ -93,5 +98,4 @@ export function Home() {
       </footer>
     </div>
   );
-}
-
+}  

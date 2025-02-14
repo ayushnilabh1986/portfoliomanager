@@ -3,7 +3,7 @@ import './../App.js';
 import React from "react";
 import { SignUp } from "./SignUp.js";
 import { Home } from "./Home.js";
-import ForgotPassword  from "./ForgotPassword.js";
+import { ForgotPassword } from "./ForgotPassword.js";
 import ReactDOM from 'react-dom/client';
 
 
