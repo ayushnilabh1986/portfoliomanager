@@ -13,10 +13,10 @@ export  function SignIn() {
   return (
     <div className="App">
       <header>
-        <h1 className="terolo"> PM </h1>
+        <h3 className="terolo"> Portfolio Manager </h3>
       </header>
       <div className="box">
-        <div className="box1">
+        <div id="box1">
           <h2 className="signIn">Sign in</h2>
           <div className="rectangle">
             <img className="photo" src={googleLogo} alt="react logo" />
