@@ -1,11 +1,17 @@
 import googleLogo from "./asset/google.webp";
+import React from "react";
+import { SignUp } from "./SignUp.js";
+import { SignIn } from "./SignIn.js";
+import { ForgotPassword } from "./ForgotPassword.js";
 
+
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import "./../App.js";
 export function Home() {
   return (
     <div className="App">
       <header>
-        <h1 className="terolo"> Porfolio Manager </h1>
+        <h1 className="terolo"> PM </h1>
       </header>
       <div className="box">
         <div className="box1">
@@ -13,7 +19,7 @@ export function Home() {
           <div className="rectangle">
             <img className="photo" src={googleLogo} alt="react logo" />
 
-            <h3 className="google">Google</h3>
+            <h4 className="google">Google</h4>
           </div>
 
           <form action="" className="form">
@@ -54,28 +60,27 @@ export function Home() {
               />
 
               <label for="rememberMe">
-                <h3 className="remember">
+                <h4 className="remember">
                   Remember me
-                  <a className="forgotPassword" href="https://www.google.com">
-                    {" "}
-                    Forgot Password?
-                  </a>
-                </h3>
+                  <Link to="/ForgotPassword">Forgot Password?</Link>
+
+                </h4>
               </label>
             </div>
             <button class="form__button">
               {" "}
               <div className="rectangle4">
-                <h3 className="signIn1">Signin</h3>
+                <h4 className="signIn1">Signin</h4>
               </div>
             </button>
           </form>
 
           <div className="signUp">
-            <h3>
+            <h4>
               Don't have an account?
-              <a href="https://www.yahoo.com"> Signup for free</a>
-            </h3>
+              <Link to="/SignUp">Signup for free</Link>
+
+            </h4>
           </div>
         </div>
       </div>

@@ -1,3 +1,123 @@
+/** Declare some variables **/
+$primary: #007bff;
+
+// Password strength meter color for the different levels
+$strength-colors: (darkred, orangered, orange, yellowgreen, green);
+
+// Gap width between strength meter bars
+$strength-gap: 6px;
+
+
+
+.main-container {
+  width: 400px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.form-container {
+  bottom: 100px;
+}
+
+legend.form-label {
+  font-size: 1.5rem;
+  color: desaturate(darken($primary, 10%), 60%);
+}
+
+.control-label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: desaturate(darken($primary, 10%), 80%);
+}
+
+.form-control {
+  font-size: 1rem;
+}
+
+.form-hint {
+  font-size: 0.6rem;
+  line-height: 1.4;
+  margin: -5px auto 5px;
+  color: #999;
+
+  &.error {
+    color: #C00;
+    font-size: 0.8rem;
+  }
+}
+
+button.btn {
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.password-count {
+  bottom: 16px;
+  right: 10px;
+  font-size: 1rem;
+}
+
+.strength-meter {
+  position: relative;
+  height: 3px;
+  background: #DDD;
+  margin: 7px 0;
+  border-radius: 2px;
+
+  // Dynamically create the gap effect
+  &:before,
+  &:after {
+    content: '';
+    height: inherit;
+    background: transparent;
+    display: block;
+    border-color: #FFF;
+    border-style: solid;
+    border-width: 0 $strength-gap 0;
+    position: absolute;
+    width: calc(20% + #{$strength-gap});
+    z-index: 10;
+  }
+
+  // Dynamically create the gap effect
+  &:before {
+    left: calc(20% - #{($strength-gap / 2)});
+  }
+
+  // Dynamically create the gap effect
+  &:after {
+    right: calc(20% - #{($strength-gap / 2)});
+  }
+}
+
+.strength-meter-fill {
+  background: transparent;
+  height: inherit;
+  position: absolute;
+  width: 0;
+  border-radius: inherit;
+  transition: width 0.5s ease-in-out, background 0.25s;
+
+  // Dynamically generate strength meter color styles
+  @for $i from 1 through 5 {
+    &[data-strength='#{$i - 1}'] {
+      width: (20% * $i);
+      background: nth($strength-colors, $i);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
 
 .form-fild {
 	position: relative;
@@ -44,11 +164,15 @@ input,
   text-align: center;
 }
 .signIn {
+
+
+  
   text-align: left;
-  margin-left: 25px;
+  margin-left: 53px;
   color: blue;
   font-size: 30px;
 }
+
 .google{
   text-align: center;
   margin-top: -50px;
@@ -91,7 +215,6 @@ $clr-gray500: #425a65; */
 *::before,
 *::after {
   box-sizing: border-box;
-  padding: 0;
 }
 
 body {
@@ -102,10 +225,20 @@ body {
   justify-content: center;
   align-items: center;
   color: #425a65;
+  
+  margin: 0;
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  /* line-height: var(--bs-body-line-height); */
+  /* color: var(--bs-body-color); */
+  text-align: var(--bs-body-text-align);
+  /* background-color: var(--bs-body-bg); */
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .form {
-  padding: 2rem;
   border-radius: 1rem;
   background-color: white;
 
@@ -186,9 +319,7 @@ body {
   }
 
   .form__button {
-    display: block;
     margin-left: auto;
-    background-color:#9dedff;
     
     font-family: inherit;
     font-weight: inherit;
@@ -246,7 +377,7 @@ margin-top: 3px;
 
 .signUp {
 
-
+margin: 40px 40px 10px 40px;
 }
 .signIn1 {
   margin: 30px;
@@ -261,21 +392,15 @@ margin-top: 3px;
     padding: 0.4em;
 
 }
-.rememberMe {
-  width: 400px;
-  margin-top: 7px;
-    margin-left: 0px;
-    margin-right: 324px;
-    margin-bottom: 33px;
-}
+
 .footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 27px;
-    display: inline-block;
+    margin-top: 40px;
+    margin-bottom: 10px;
     width: 715px;
-    height: 80px;
+    height: 100px;
     /* background: white; */
     margin-left: 655px;
     /* border: 1px solid gray; */
@@ -283,17 +408,24 @@ margin-top: 3px;
     /* box-sizing: border-box; */
 
 }
+.rememberMe {
+  width: 400px;
+    margin-left: 0px;
+    margin-right: 324px;
+    margin-bottom: 33px;
+}
 .remember {     
+  
   margin-top: -26px;
-  margin-left: -107px;
-  margin-right: -163px;
-  margin-bottom: 22px;
+ margin-left: -180px; 
+  margin-right: -470px;
+  /* margin-bottom: 22px; */
+
+  
   
 }
-input {
-}
-.forgotPassword {
-margin-left: 7px;
+.forgotPassword {    margin-left: 400px;
+  margin-top: -29px;
 }
 
 .rectangle3 {
@@ -320,23 +452,49 @@ margin-left: 7px;
   box-sizing: border-box;
 }
 .line1 {
-width: 80px;
-margin-top: 50px;
-margin-left: 8px;
-
+  width: 89px;
+  margin-top: 40px;
+  margin-left: 55px;
+  margin-right: 10px;
+  margin-bottom: 7px;
 }
 .box1 {
   margin-left: 15px;
   margin-right: 15px;
+  // margin-left: 0px;
+  // margin-right: 42px;
+  margin-bottom: 10px;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  display: inline-block;
+  width: 500px;
+  height: 800px;
+  background: white;
+  /* margin-left: 750px; */
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.acceptTC{
+font-size: 0.75rem;
+  margin-top: 10px;
+  
+  margin-bottom: 10px;
 
-
-
+  
+  margin-right: 20px;
+  
+  margin-left: 30px;
 }
 .line2 {
   width: 89px;
-  margin-top: -20px;
+  margin-top: -19px;
   margin-right: 0px;
-  }
+  margin-left: 352px;
+  margin-bottom: 10px;
+}
 .email1 {
   color: gray;
   font-style: bold;
@@ -353,10 +511,10 @@ margin-left: -6px;
   margin-left: -340px;
   margin-top: 0px;
   margin-bottom: 9px;
-  margin-right: -50px;}
+  margin-right: -50px;
+}
   .box {
-    display: flex
-;
+    display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
