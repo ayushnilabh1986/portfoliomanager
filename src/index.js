@@ -7,7 +7,6 @@ import { SignIn } from './pages/SignIn';
 import { SignUp } from './pages/SignUp';
 import { ForgotPassword } from './pages/ForgotPassword';
 import { Routes, Route } from "react-router-dom";
-import { Home } from './pages/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App  from './../src/App';
 import { WorkoutsContextProvider } from './context/WorkoutContext'
@@ -26,8 +25,7 @@ import {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-        <Route path="/" element={ <Home /> }>
-        </Route>
+       
         <Route path="/SignIn" element={ <SignIn /> }>
         </Route>
         <Route path="/SignUp" element={ <SignUp /> }>

@@ -4,7 +4,6 @@ import forgot from "./asset/forgot.jpg";
 import React from "react";
 import { SignUp } from "./SignUp.js";
 import { SignIn } from "./SignIn.js";
-import { Home }  from "./Home.js";
 import ReactDOM from 'react-dom/client';
 
 

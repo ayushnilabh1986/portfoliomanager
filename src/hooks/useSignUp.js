@@ -10,10 +10,39 @@ export const useSignUp = () => {
     setIsLoading(true)
     setError(null)
 
+    /*
+
+    async function signUpUser(email, password) {
+  try {
+    const response = await fetch('https://your-api-domain.com/api/user/SignUp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error signing up:', error);
+    return { success: false, message: error.message };
+  }
+}
+
+// Usage example:
+signUpUser('test@example.com', 'securePassword123')
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+
+    */
+
     const response = await fetch('/api/user/SignUp', {
 
       method: 'POST',
-      //headers: {'Content-Type': 'application/json'},
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ email, password })
     })
     const json = await response.json()
@@ -31,6 +60,7 @@ export const useSignUp = () => {
 
       // update loading state
       setIsLoading(false)
+      console.log(json);
     }
   }
 

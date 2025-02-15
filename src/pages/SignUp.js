@@ -1,10 +1,11 @@
 import "./../App.js";
 import PasswordStrengthBar from "react-password-strength-bar";
+import axios from "axios";
+
 import { useState } from "react";
 import { useSignUp } from "../../src/hooks/useSignUp.js";
 import React from "react";
 import { SignIn } from "./SignIn.js";
-import { Home } from "./Home.js";
 import { ForgotPassword } from "./ForgotPassword.js";
 import ReactDOM from "react-dom/client";
 
