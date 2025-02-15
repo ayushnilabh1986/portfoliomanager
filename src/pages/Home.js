@@ -35,9 +35,9 @@ export  function Home() {
                 id="email"
                 className="form__input"
                 placeholder=" "
-                autocomplete="off"
+                autoComplete="off"
               />
-              <label for="email" className="form__label">
+              <label htmlFor="email" className="form__label">
                 Email
               </label>
             </div>
@@ -49,7 +49,7 @@ export  function Home() {
                 className="form__input"
                 placeholder=" "
               />
-              <label for="password" className="form__label">
+              <label htmlFor="password" className="form__label">
                 Password
               </label>
             </div>
@@ -61,7 +61,7 @@ export  function Home() {
                 name="rememberMe"
               />
 
-              <label for="rememberMe">
+              <label>
                 <h4 className="remember">
                   Remember me
                   <div className="forgotPassword">
@@ -72,7 +72,7 @@ export  function Home() {
                 </h4>
               </label>
             </div>
-            <button class="form__button">
+            <button className="form__button">
               {" "}
               <div className="rectangle4">
                 <h4 className="signIn1">Signin</h4>

@@ -1,8 +1,7 @@
 import "./../App.js";
 import PasswordStrengthBar from "react-password-strength-bar";
-
 import { useState } from "react";
-
+import { useSignUp } from "../../src/hooks/useSignUp.js";
 import React from "react";
 import { SignIn } from "./SignIn.js";
 import { Home } from "./Home.js";
@@ -13,47 +12,60 @@ import { Routes, Route, Link, useLocation } from "react-router-dom";
 import googleLogo from "./asset/google.webp";
 
 export function SignUp() {
+  const [email, setEmail] = useState("");
+
   const [password, setPassword] = useState("");
-  const [strength, setStrength] = useState("");
-  const [strengthColor, setStrengthColor] = useState("black");
-  function evaluatePasswordStrength(password) {
-    let score = 0;
-    if (!password) return "";
-    if (password.length > 8) score += 1;
-    // Contains lowercase
-    if (/[a-z]/.test(password)) score += 1;
-    // Contains uppercase
-    if (/[A-Z]/.test(password)) score += 1;
-    // Contains numbers
-    if (/\d/.test(password)) score += 1;
+  const {SignUp,error,isLoading}=useSignUp()
 
-    // Contains special characters
-
-    if (/[^A-Za-z0-9]/.test(password)) score += 1;
-    switch (score) {
-      case 0:
-      case 1:
-      case 2:
-        setStrengthColor("red");
-        return "Weak";
-      case 3:
-        setStrengthColor("orange");
-        return "Medium";
-      case 4:
-      case 5:
-        setStrengthColor("green");
-        return "Strong";
-      default:
-        return "";
-    }
+  const handleSubmit = async (e) =>
+  {
+    e.preventDefault()
+    console.log(email,password);
+  await SignUp(email,password)
   }
+  
 
-  const handleChange = (event) => {
-    const { value } = event.target;
 
-    setPassword(value);
-    setStrength(evaluatePasswordStrength(value));
-  };
+  // const [strength, setStrength] = useState("");
+  // const [strengthColor, setStrengthColor] = useState("black");
+  // function evaluatePasswordStrength(password) {
+  //   let score = 0;
+  //   if (!password) return "";
+  //   if (password.length > 8) score += 1;
+  //   // Contains lowercase
+  //   if (/[a-z]/.test(password)) score += 1;
+  //   // Contains uppercase
+  //   if (/[A-Z]/.test(password)) score += 1;
+  //   // Contains numbers
+  //   if (/\d/.test(password)) score += 1;
+
+  //   // Contains special characters
+
+  //   if (/[^A-Za-z0-9]/.test(password)) score += 1;
+  //   switch (score) {
+  //     case 0:
+  //     case 1:
+  //     case 2:
+  //       setStrengthColor("red");
+  //       return "Weak";
+  //     case 3:
+  //       setStrengthColor("orange");
+  //       return "Medium";
+  //     case 4:
+  //     case 5:
+  //       setStrengthColor("green");
+  //       return "Strong";
+  //     default:
+  //       return "";
+  //   }
+  // }
+
+  // const handleChange = (event) => {
+  //   const { value } = event.target;
+
+  //   setPassword(value);
+  //   setStrength(evaluatePasswordStrength(value));
+  // };
 
   return (
     <div className="App">
@@ -69,52 +81,45 @@ export function SignUp() {
             <h4 className="google">Google</h4>
           </div>
 
-          <form action="" className="form">
+          <form action="SignUp" className="form" onSubmit={handleSubmit}>
             <hr className="line1" />
             <h1 className="form__title">Or sign up with Email</h1>
             <hr className="line2" />
+            
             <div className="form__group">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="form__input"
-                placeholder="Your Name"
-                autocomplete="off"
-              />
-              <label for="email" className="form__label">
-                Name
+            <label htmlFor="email" className="form__label">
+                Email
               </label>
-            </div>
-            <div className="form__group">
               <input
                 type="email"
                 id="email"
                 name="email"
                 className="form__input"
                 placeholder="yourname@example.com"
-                autocomplete="off"
+                autoComplete="off"
+                onChange={(e) =>setEmail(e.target.value)}
+                value={email}
               />
-              <label for="email" className="form__label">
-                Email
-              </label>
+              
             </div>
 
             <div className="form__group">
+            <label htmlFor="password" className="form__label">
+                Password
+              </label>
               <input
                 type="password"
                 id="password"
                 className="form__input"
+             
+                onChange={(e) =>setPassword(e.target.value)}
                 value={password}
-                onChange={handleChange}
                 placeholder="Enter your password"
               />
-              <label for="password" className="form__label">
-                Password
-              </label>
+             
 
               <br />
-              <small>
+              {/* <small>
                 <span
                   style={{
                     fontWeight: "bold",
@@ -123,7 +128,7 @@ export function SignUp() {
                 >
                   {strength}
                 </span>
-              </small>
+              </small> */}
             </div>
             <div className="acceptTC">
               <h4>
@@ -133,7 +138,7 @@ export function SignUp() {
                 <a href="https://www.google.com">Privacy Policy.</a>
               </h4>
             </div>
-            <button class="form__button">
+            <button disabled={isLoading} className="form__button">
               {" "}
               <div className="rectangle4">
                 <h4 className="signIn1">Signup</h4>
@@ -146,6 +151,7 @@ export function SignUp() {
                 <Link to="/SignIn">Sign in</Link>
               </h4>
             </div>
+            {error && <div className="error">{error}</div>}
           </form>
         </div>
       </div>
@@ -159,3 +165,4 @@ export function SignUp() {
     </div>
   );
 }
+

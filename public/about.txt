@@ -4,3 +4,13 @@ This favicon was generated using the following font:
 - Font Author: undefined
 - Font Source: https://fonts.gstatic.com/s/adventpro/v28/V8mqoQfxVT4Dvddr_yOwrzaFxV7JtdQgFqXdUAQrGp_zgX5sWCpLpCRPTJoonw1aBA.ttf
 - Font License: undefined)
+
+
+
+ /*
+mongodb+srv://ayushnilabhsingh1986:An@01041986_blrsatan@cluster0.vpewl.mongodb.net/
+mongodb+srv://ayushnilabhsingh1986:An@01041986_blrsatan@cluster0.vpewl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+mongodb+srv://ayushnilabhsingh1986:An@01041986_blrsatan@cluster0.vpewl.mongodb.net/
+mongodb+srv://ayushnilabhsingh1986:An@01041986_blrsatan@cluster0.vpewl.mongodb.net/
+
+*/

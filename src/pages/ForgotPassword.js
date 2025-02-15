@@ -33,15 +33,15 @@ export function ForgotPassword() {
                 name="email"
                 className="form__input"
                 placeholder="yourname@example.com"
-                autocomplete="off"
+                autoComplete="off"
               />
-              <label for="email" className="form__label">
+              <label className="form__label">
                 Email
               </label>
             </div>
 
            
-            <button class="form__button">
+            <button className="form__button">
               {" "}
               <div className="rectangle4">
                 <h4 className="signIn1">Reset Password</h4>

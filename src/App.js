@@ -3,20 +3,23 @@ import { SignUp } from "../src/pages/SignUp.js";
 import { Home } from "../src/pages/Home.js";
 import { SignIn } from "../src/pages/SignIn.js";
 import { ForgotPassword } from "../src/pages/ForgotPassword.js";
+import { BrowserRouter, Routes, Route, Navigate,Link } from 'react-router-dom'
+import { useAuthContext } from './hooks/useAuthContext'
+
+
 
 import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router } from "react-router";
 import JoinForm  from "./components/JoinForm.js";
 
 import React from "react";
 
-import { Routes, Route, Link, useLocation } from "react-router-dom";
 
 function App() {
+  const { user } = useAuthContext()
+
   return (
-    <div className="main-container d-table position-absolute m-auto">
-      <JoinForm />
-      <nav>
+    <div>
+     
         <ul>
           <li>
             <Link to="/">{Home}</Link>
@@ -31,11 +34,12 @@ function App() {
             <Link to="/ForgotPassword">{ForgotPassword}</Link>
           </li>
         </ul>
-      </nav>{" "}
       
       {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-      <Routes>
+     
+        
+          <Routes>
         <Route path="/SignIn" element={<SignIn />} />
 
         <Route path="/SignUp" element={<SignUp />} />
@@ -44,7 +48,9 @@ function App() {
 
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
       </Routes>
+
     </div>
   );
 }
+
 export default App;

@@ -9,6 +9,10 @@ import { ForgotPassword } from './pages/ForgotPassword';
 import { Routes, Route } from "react-router-dom";
 import { Home } from './pages/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import App  from './../src/App';
+import { WorkoutsContextProvider } from './context/WorkoutContext'
+import { AuthContextProvider } from './context/AuthContext'
+import { BrowserRouter } from 'react-router-dom'
 
 import {
   RouterProvider,
@@ -35,27 +39,16 @@ const router = createBrowserRouter(
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+
   <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <AuthContextProvider>
+    <WorkoutsContextProvider>
+      <App />
+    </WorkoutsContextProvider>
+  </AuthContextProvider>
+</React.StrictMode>
+</BrowserRouter>
+
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
