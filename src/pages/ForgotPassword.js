@@ -3,7 +3,7 @@ import forgot from "./asset/forgot.jpg";
 
 import React from "react";
 import { SignUp } from "./SignUp.js";
-import { SignIn } from "./SignIn.js";
+import { Login } from "./Login.js";
 import ReactDOM from 'react-dom/client';
 
 
@@ -12,9 +12,7 @@ import { Routes, Route, Link, useLocation } from "react-router-dom";
 export function ForgotPassword() {
   return (
     <div className="App">
-      <header>
-        <h3 className="terolo"> Portfolio Manager </h3>
-      </header>
+      
       <div className="box">
         <div id="box1">
           <h2 className="signIn">Forgot Password</h2>
@@ -51,7 +49,7 @@ export function ForgotPassword() {
           <div className="signUp">
             <h4>
              Remember Password 
-             <Link to="/SignIn"> Sign in</Link>
+             <Link to="/Login"> Sign in</Link>
 
 
             </h4>

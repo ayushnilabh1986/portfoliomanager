@@ -5,16 +5,16 @@ import axios from "axios";
 import { useState } from "react";
 import { useSignUp } from "../../src/hooks/useSignUp.js";
 import React from "react";
-import { SignIn } from "./SignIn.js";
+import { Login } from "./Login.js";
 import { ForgotPassword } from "./ForgotPassword.js";
 import ReactDOM from "react-dom/client";
 
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
 import googleLogo from "./asset/google.webp";
 
 export function SignUp() {
   const [email, setEmail] = useState("");
-
+const navigate= useNavigate();
   const [password, setPassword] = useState("");
   const {SignUp,error,isLoading}=useSignUp()
 
@@ -23,56 +23,57 @@ export function SignUp() {
     e.preventDefault()
     console.log(email,password);
   await SignUp(email,password)
+  navigate('/Login')
   }
   
 
 
-  // const [strength, setStrength] = useState("");
-  // const [strengthColor, setStrengthColor] = useState("black");
-  // function evaluatePasswordStrength(password) {
-  //   let score = 0;
-  //   if (!password) return "";
-  //   if (password.length > 8) score += 1;
-  //   // Contains lowercase
-  //   if (/[a-z]/.test(password)) score += 1;
-  //   // Contains uppercase
-  //   if (/[A-Z]/.test(password)) score += 1;
-  //   // Contains numbers
-  //   if (/\d/.test(password)) score += 1;
+  const [strength, setStrength] = useState("");
+  const [strengthColor, setStrengthColor] = useState("black");
 
-  //   // Contains special characters
+  
+  function evaluatePasswordStrength(password) {
+    let score = 0;
+    if (!password) return "";
+    if (password.length > 8) score += 1;
+    // Contains lowercase
+    if (/[a-z]/.test(password)) score += 1;
+    // Contains uppercase
+    if (/[A-Z]/.test(password)) score += 1;
+    // Contains numbers
+    if (/\d/.test(password)) score += 1;
 
-  //   if (/[^A-Za-z0-9]/.test(password)) score += 1;
-  //   switch (score) {
-  //     case 0:
-  //     case 1:
-  //     case 2:
-  //       setStrengthColor("red");
-  //       return "Weak";
-  //     case 3:
-  //       setStrengthColor("orange");
-  //       return "Medium";
-  //     case 4:
-  //     case 5:
-  //       setStrengthColor("green");
-  //       return "Strong";
-  //     default:
-  //       return "";
-  //   }
-  // }
+    // Contains special characters
 
-  // const handleChange = (event) => {
-  //   const { value } = event.target;
+    if (/[^A-Za-z0-9]/.test(password)) score += 1;
+    switch (score) {
+      case 0:
+      case 1:
+      case 2:
+        setStrengthColor("red");
+        return "Weak";
+      case 3:
+        setStrengthColor("orange");
+        return "Medium";
+      case 4:
+      case 5:
+        setStrengthColor("green");
+        return "Strong";
+      default:
+        return "";
+    }
+  }
 
-  //   setPassword(value);
-  //   setStrength(evaluatePasswordStrength(value));
-  // };
+  const handleChange = (event) => {
+    const { value } = event.target;
+
+    setPassword(value);
+    setStrength(evaluatePasswordStrength(value));
+  };
 
   return (
     <div className="App">
-      <header>
-        <h3 className="terolo"> Portfolio Manager </h3>
-      </header>
+      
       <div className="box">
         <div id="box1">
           <h2 className="signIn">Sign up</h2>
@@ -120,7 +121,7 @@ export function SignUp() {
              
 
               <br />
-              {/* <small>
+              <small>
                 <span
                   style={{
                     fontWeight: "bold",
@@ -129,7 +130,7 @@ export function SignUp() {
                 >
                   {strength}
                 </span>
-              </small> */}
+              </small>
             </div>
             <div className="acceptTC">
               <h4>
@@ -149,7 +150,7 @@ export function SignUp() {
             <div className="signUp">
               <h4>
                 Already have an account?
-                <Link to="/SignIn">Sign in</Link>
+                <Link to="/Login">Sign in</Link>
               </h4>
             </div>
             {error && <div className="error">{error}</div>}

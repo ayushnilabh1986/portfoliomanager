@@ -5,30 +5,43 @@ import React from "react";
 import { SignUp } from "./SignUp.js";
 import { ForgotPassword } from "./ForgotPassword.js";
 import ReactDOM from 'react-dom/client';
-
+import Checkbox from '@mui/material/Checkbox';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import googleLogo from "./asset/google.webp";
 
+import {useAuthContext} from "./../hooks/useAuthContext.js"
+import { useNavigate } from "react-router-dom";
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 
-
-export  function SignIn() {
+export  function Login() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const {login, error, isLoading} = useLogin()
+  const {Login, error, isLoading} = useLogin()
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+ 
+  async function handleSubmit(event) {
 
-    await login(email, password)
-  }
+    event.preventDefault();
+
+    await Login(email, password)
+   // navigate("/Home");
+
+  
+
+
+
+  
+  
+}
   return (
     <div className="App">
-      <header>
-        <h3 className="terolo"> Portfolio Manager </h3>
-      </header>
+      
       <div className="box">
         <div id="box1">
           <h2 className="signIn">Sign in</h2>
@@ -38,7 +51,7 @@ export  function SignIn() {
             <h4 className="google">Google</h4>
           </div>
 
-          <form action="SignIn" className="form" onSubmit={handleSubmit}>
+          <form action="Login" className="form" onSubmit={handleSubmit}>
             <hr className="line1" />
             <h1 className="form__title">Or sign in with Email</h1>
             <hr className="line2" />
@@ -74,23 +87,15 @@ export  function SignIn() {
               
             </div>
             <div className="rememberMe">
-              <input
-                type="checkbox"
-                value="1"
-                id="rememberMe"
-                name="rememberMe"
-              />
+            <FormGroup className='remember'>
+      <FormControlLabel control={<Checkbox defaultChecked />} label= "Remember me" />
+          </FormGroup>
 
-              <label>
-                <h4 className="remember">
-                  Remember me
                   <div className="forgotPassword">
                   <Link to="/ForgotPassword">Forgot Password?</Link>
 
                     
                   </div>
-                </h4>
-              </label>
               </div>
 
 

@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router} from "react-router";
-import { SignIn } from './pages/SignIn';
-import { SignUp } from './pages/SignUp';
-import { ForgotPassword } from './pages/ForgotPassword';
+import { Login } from '../src/pages/Login';
+import { SignUp } from '../src/pages/SignUp';
+import { ForgotPassword } from '../src/pages/ForgotPassword';
 import { Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App  from './../src/App';
-import { WorkoutsContextProvider } from './context/WorkoutContext'
+//import { WorkoutsContextProvider } from './context/WorkoutContext'
 import { AuthContextProvider } from './context/AuthContext'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -26,12 +26,13 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
        
-        <Route path="/SignIn" element={ <SignIn /> }>
+        <Route path="/Login" element={ <Login /> }>
         </Route>
         <Route path="/SignUp" element={ <SignUp /> }>
         </Route>
         <Route path="/ForgotPassword" element={ <ForgotPassword /> }>
         </Route>
+        
     </>
   )
 );
@@ -41,9 +42,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
   <React.StrictMode>
   <AuthContextProvider>
-    <WorkoutsContextProvider>
+    {/* <WorkoutsContextProvider> */}
       <App />
-    </WorkoutsContextProvider>
+    {/* </WorkoutsContextProvider> */}
   </AuthContextProvider>
 </React.StrictMode>
 </BrowserRouter>
