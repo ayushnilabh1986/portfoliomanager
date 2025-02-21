@@ -7,13 +7,26 @@ import { useAuthContext } from "../src/hooks/useAuthContext.js";
 import { Navbar } from "./../src/components/Navbar.js";
 import { Home } from "../src/pages/Home.js";
 import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+// import { useToken } from '../src/components/useToken.js';
 
 import ReactDOM from "react-dom/client";
 
-import React from "react";
-
 function App() {
   const { user } = useAuthContext();
+  //const { token, setToken } = useToken();
+
+
+
+  // if(!token) {
+  //   return <Login setToken={setToken} />
+  // }
+
+
+
+
+
+
 
   return (
     <div className="App">

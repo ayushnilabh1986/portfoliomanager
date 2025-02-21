@@ -1,6 +1,6 @@
 import './../App.js';
 import { useState } from "react"
-import { useLogin } from "../hooks/useLogin"
+import { useLogin } from "../hooks/useLogin.js"
 import React from "react";
 import { SignUp } from "./SignUp.js";
 import { ForgotPassword } from "./ForgotPassword.js";
@@ -16,22 +16,94 @@ import {useAuthContext} from "./../hooks/useAuthContext.js"
 import { useNavigate } from "react-router-dom";
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "CHANGE":
+      return { ...state, email: action.payload };
+    default:
+      return state;
+  }
+};
+
+
+
+const mapStateToProps = (state) => {
+  return {
+    email: state.email,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleChange: (e) => dispatch({ type: "CHANGE", payload: e.target.value }),
+  };
+};
+
+/*---
+
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider, connect } from "react-redux";
+import { createStore } from "redux";
+
+const Form = ({ name, handleChange }) => {
+  return (
+    <>
+      <input value={name} onChange={handleChange} />
+    </>
+  );
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "CHANGE":
+      return { ...state, name: action.payload };
+    default:
+      return state;
+  }
+};
+
+const store = createStore(reducer, { name: "" });
+
+const mapStateToProps = (state) => {
+  return {
+    name: state.name,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleChange: (e) => dispatch({ type: "CHANGE", payload: e.target.value }),
+  };
+};
+
+const App = connect(mapStateToProps, mapDispatchToProps)(Form);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
+---*/
+
+
+
 
 export  function Login() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const {Login, error, isLoading} = useLogin()
-  const navigate = useNavigate();
+  const {login, error, isLoading} = useLogin();
+    const navigate = useNavigate();
 
  
   async function handleSubmit(event) {
 
     event.preventDefault();
 
-    await Login(email, password)
-   // navigate("/Home");
+    await login(email, password)
 
+  
   
 
 
@@ -131,3 +203,7 @@ export  function Login() {
     </div>
   );
 }  
+
+// Login.propTypes = {
+//   setToken: PropTypes.func.isRequired
+// }

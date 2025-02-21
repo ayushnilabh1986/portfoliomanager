@@ -23,12 +23,12 @@ export function Navbar() {
               <button onClick={handleClick}>Log out</button>
             </div>
           )}
-          {!user && (
+          {/* {!user && (
             <div>
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
             </div>
-          )}
+          )} */}
         </nav>
       </div>
     </header>

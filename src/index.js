@@ -9,9 +9,11 @@ import { ForgotPassword } from '../src/pages/ForgotPassword';
 import { Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App  from './../src/App';
-//import { WorkoutsContextProvider } from './context/WorkoutContext'
+import { WorkoutsContextProvider } from './context/WorkoutContext'
 import { AuthContextProvider } from './context/AuthContext'
 import { BrowserRouter } from 'react-router-dom'
+
+
 
 import {
   RouterProvider,
@@ -42,9 +44,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
   <React.StrictMode>
   <AuthContextProvider>
-    {/* <WorkoutsContextProvider> */}
+    <WorkoutsContextProvider>
       <App />
-    {/* </WorkoutsContextProvider> */}
+    </WorkoutsContextProvider>
   </AuthContextProvider>
 </React.StrictMode>
 </BrowserRouter>
