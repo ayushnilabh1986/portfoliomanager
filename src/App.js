@@ -13,7 +13,12 @@ import React, { useState } from 'react';
 import ReactDOM from "react-dom/client";
 
 function App() {
-  const { user } = useAuthContext();
+  console.log('Her');
+  var { user } = useAuthContext();
+
+  //user=localStorage.getItem('user');
+  console.log('user', user);
+
   //const { token, setToken } = useToken();
 
 
