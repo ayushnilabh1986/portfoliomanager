@@ -23,7 +23,6 @@ const navigate= useNavigate();
     e.preventDefault()
     console.log(email,password);
   await SignUp(email,password)
-  navigate('/Login')
   }
   
 

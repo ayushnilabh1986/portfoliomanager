@@ -19,7 +19,7 @@ import WorkoutDetails from "../components/WorkoutDetails.js";
 import { useAuthContext } from "../hooks/useAuthContext.js";
 
 // components
-import WorkoutForm from '../components/WorkoutForm'
+import WorkoutForm from '../components/WorkoutForm.js'
 
 export function Home() {
   const { workouts, dispatch } = useWorkoutsContext();
@@ -48,9 +48,7 @@ export function Home() {
 
   return (
     <div className="home">
-      <div className="navbar">
-        <Navbar />
-      </div>
+      
       <div className="box">
         <h3> Successfully Logged In! </h3>
         <p>Welcome to the Portfolio Manager Dashboard</p>
@@ -60,7 +58,7 @@ export function Home() {
           <WorkoutDetails key={workout._id} workout={workout} />
         ))}
       </div>
-      {/* <WorkoutForm /> */}
+      <WorkoutForm />
     </div>
   )
 }

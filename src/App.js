@@ -31,22 +31,31 @@ function App() {
   return (
     <div className="App">
 
+      <BrowserRouter>
+      <Navbar />
       <div className="pages">
+
         <Routes>
         <Route 
-              path="/"
-              element={<Login />}
+              path="/" 
+              element={user ? <Home /> : <Navigate to="/Login" />} 
             />
-          <Route path="/Home" element={<Home />} />
-          <Route path="/Login" element={<Login />} />
-
-          <Route path="/SignUp" element={<SignUp />} />
+            <Route 
+              path="/Login" 
+              element={!user ? <Login /> : <Navigate to="/" />} 
+            />
+            <Route 
+              path="/SignUp" 
+              element={!user ? <SignUp /> : <Navigate to="/" />} 
+            />
 
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
         </Routes>
+        </div>
+        </BrowserRouter>
+
       </div>
 
-    </div>
   );
 }
 

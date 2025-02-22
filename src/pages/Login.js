@@ -14,29 +14,11 @@ import googleLogo from "./asset/google.webp";
 
 import {useAuthContext} from "./../hooks/useAuthContext.js"
 import { useNavigate } from "react-router-dom";
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "CHANGE":
-      return { ...state, email: action.payload };
-    default:
-      return state;
-  }
-};
 
 
 
-const mapStateToProps = (state) => {
-  return {
-    email: state.email,
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    handleChange: (e) => dispatch({ type: "CHANGE", payload: e.target.value }),
-  };
-};
+
+
 
 /*---
 

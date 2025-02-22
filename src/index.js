@@ -24,32 +24,41 @@ import {
 
 
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <>
+// const router = createBrowserRouter(
+//   createRoutesFromElements(
+//     <>
        
-        <Route path="/Login" element={ <Login /> }>
-        </Route>
-        <Route path="/SignUp" element={ <SignUp /> }>
-        </Route>
-        <Route path="/ForgotPassword" element={ <ForgotPassword /> }>
-        </Route>
+//         <Route path="/Login" element={ <Login /> }>
+//         </Route>
+//         <Route path="/SignUp" element={ <SignUp /> }>
+//         </Route>
+//         <Route path="/ForgotPassword" element={ <ForgotPassword /> }>
+//         </Route>
         
-    </>
-  )
-);
+//     </>
+//   )
+// );
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+// ReactDOM.createRoot(document.getElementById("root")).render(
 
+//   <React.StrictMode>
+//   <AuthContextProvider>
+//     <WorkoutsContextProvider>
+//       <App />
+//     </WorkoutsContextProvider>
+//   </AuthContextProvider>
+// </React.StrictMode>
+
+// );
+// reportWebVitals();
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
-  <AuthContextProvider>
-    <WorkoutsContextProvider>
-      <App />
-    </WorkoutsContextProvider>
-  </AuthContextProvider>
-</React.StrictMode>
-</BrowserRouter>
-
+    <AuthContextProvider>
+      <WorkoutsContextProvider>
+        <App />
+      </WorkoutsContextProvider>
+    </AuthContextProvider>
+  </React.StrictMode>
 );
-reportWebVitals();
