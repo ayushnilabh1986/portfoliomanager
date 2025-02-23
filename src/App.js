@@ -54,7 +54,7 @@ function App() {
               element={!user ? <SignUp /> : <Navigate to="/" />} 
             />
 
-          <Route path="/ForgotPassword" element={<ForgotPassword />} />
+          <Route path="/Home"  element={!user ? <Login /> : <Navigate to="/" />} />
         </Routes>
         </div>
         </BrowserRouter>
