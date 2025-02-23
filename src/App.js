@@ -9,7 +9,7 @@ import { Home } from "../src/pages/Home.js";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 // import { useToken } from '../src/components/useToken.js';
-
+import {PasswordReset} from "../src/components/PasswordReset.js"
 import ReactDOM from "react-dom/client";
 
 function App() {
@@ -55,6 +55,12 @@ function App() {
             />
 
           <Route path="/Home"  element={!user ? <Login /> : <Navigate to="/" />} />
+          <Route path="/Forgotpassword" element={<ForgotPassword />} />
+          <Route path="/password-reset" element={<PasswordReset />} />
+
+
+       
+
         </Routes>
         </div>
         </BrowserRouter>
